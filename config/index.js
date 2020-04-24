@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {//代理表
+      '/api':{
+        target:'http://localhost:9000',//接口域名
+        changeOrigin:true,//是否跨域
+        pathRewrite:{
+          '/api':'/'
+          //因为在ajax的url中价额前缀'/api',而原本的接口是没有这个前缀的，所以需要通过pathRewrite来重写地址，将前缀'/api'转为'/'
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -20,7 +29,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */

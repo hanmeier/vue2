@@ -3,9 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import ElementUI from 'element-ui'
+import Axios from 'axios'
 
 Vue.config.productionTip = false
-
+Vue.use(ElementUI)
+Vue.prototype.$axios=Axios
+Vue.prototype.$HOST='/api'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
